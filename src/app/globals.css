@@ -1,26 +1,184 @@
 @import "tailwindcss";
 
+/* ===============================
+   VARIABLES DE MARCA MATRYA
+================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #00F0B5;
+  --color-secondary: #00C2FF; 
+  --color-accent: #8A5CFF;
+  --color-dark: #0A0F1C;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Fondo global */
+body {
+  background-color: var(--color-dark);
+  color: white;
+  font-family: system-ui, sans-serif;
 }
+/* ===============================
+   Shimmer premium intermitente
+================================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  30% {
+    background-position: 200% center;
+  }
+
+  /* pausa */
+  100% {
+    background-position: 200% center;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    #ffffff 50%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shimmer 10s ease-in-out infinite;
+}
+/* ===============================
+   Button sheen premium effect
+================================= */
+
+.button-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-sheen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+
+  transform: skewX(-25deg);
+  animation: sheen 10s ease-in-out infinite;
+}
+
+@keyframes sheen {
+  0% {
+    left: -75%;
+  }
+
+  30% {
+    left: 125%;
+  }
+
+  100% {
+    left: 125%;
+  }
+}
+/* ===============================
+   Glow pulse premium
+================================= */
+
+@keyframes glowPulse {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.08);
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.25;
+  }
+}
+
+.glow-pulse {
+  animation: glowPulse 12s ease-in-out infinite;
+}
+
+/* ===============================
+   Shooting lines premium clean
+================================= */
+
+@keyframes shootingLine {
+  0% {
+    transform: translateX(-150%) rotate(20deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(150%) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+.shooting-line {
+  position: absolute;
+  left: -50%;
+  width: 600px;
+  height: 3px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 240, 181, 0.4) 40%,
+    var(--color-primary) 50%,
+    rgba(0, 240, 181, 0.4) 60%,
+    transparent 100%
+  );
+
+  box-shadow:
+    0 0 15px rgba(0, 240, 181, 0.4);
+
+  animation: shootingLine 14s linear infinite;
+
+}
+/* Animación de desplazamiento del gradiente */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-animated-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+html {
+  scroll-behavior: smooth;
 }
