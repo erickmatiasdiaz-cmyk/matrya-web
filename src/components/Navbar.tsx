@@ -30,51 +30,15 @@ export default function Navbar({ openModal }: Props) {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
-        {/* LOGO + NOMBRE (NO TOCADO) */}
-        <Link href="#diagnostico" className="group flex items-center gap-4">
-
-
-          <div
-  className="
-    relative
-    flex
-    items-center
-    justify-center
-    w-13
-    h-13
-    rounded-xl
-    bg-white/5
-    border border-white/10
-    transition-all
-    duration-300
-    hover:scale-[1.04]
-    hover:border-emerald-400/50
-    hover:bg-white/10
-    hover:shadow-[0_0_20px_rgba(0,240,181,0.25)]
-  "
->
-
-
-           <Image
-  src="/logo-matrya.svg"
-  alt="Matrya Logo"
-  width={34}
-  height={34}
-  priority
-  className="
-    transition-all
-    duration-300
-    group-hover:brightness-110
-    group-hover:drop-shadow-[0_0_6px_rgba(0,240,181,0.6)]
-  "
-/>
-
-
-          </div>
-
-          <span className="text-white/80 font-semibold tracking-widest text-lg">
-            MATRYA
-          </span>
+        <Link href="#diagnostico" className="group flex items-center">
+          <Image
+            src="/logo-nav-transparent.png"
+            alt="Matrya Logo"
+            width={700}
+            height={520}
+            priority
+            className="h-12 md:h-14 w-auto object-contain object-center transition-all duration-300 group-hover:brightness-110 group-hover:drop-shadow-[0_0_10px_rgba(94,255,202,0.45)]"
+          />
         </Link>
 
         {/* MENU ULTRA PREMIUM */}
