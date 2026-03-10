@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 interface Props {
   openModal: () => void;
@@ -22,52 +21,55 @@ export default function Navbar({ openModal }: Props) {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "bg-[#05080f]/95 backdrop-blur-xl border-b border-white/10 py-3"
-          : "bg-black/40 backdrop-blur-xl border-b border-white/5 py-5"
+          ? "border-b border-white/10 bg-[#05080f]/95 py-3 backdrop-blur-xl"
+          : "border-b border-white/5 bg-black/40 py-5 backdrop-blur-xl"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-
-        <Link href="#diagnostico" className="group flex items-center">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
+        <a href="#hero" className="group flex items-center" aria-label="Ir al hero">
           <Image
             src="/logo-nav-transparent.png"
             alt="Matrya Logo"
             width={700}
             height={520}
             priority
-            className="h-12 md:h-14 w-auto object-contain object-center transition-all duration-300 group-hover:brightness-110 group-hover:drop-shadow-[0_0_10px_rgba(94,255,202,0.45)]"
+            className="h-12 w-auto object-contain object-center transition-all duration-300 group-hover:brightness-110 group-hover:drop-shadow-[0_0_10px_rgba(94,255,202,0.45)] md:h-14"
           />
-        </Link>
+        </a>
 
-        {/* MENU ULTRA PREMIUM */}
-        <div className="hidden md:flex items-center gap-10 text-white/60 text-sm">
-
-          <a href="#enfoque" className="hover:text-white transition-colors duration-300">
-            Enfoque
+        <div className="hidden items-center gap-8 text-sm text-white/60 md:flex">
+          <a href="#soluciones" className="transition-colors duration-300 hover:text-white">
+            Soluciones
           </a>
 
-          <a href="#metodo" className="hover:text-white transition-colors duration-300">
-            Método
+          <a href="#casos" className="transition-colors duration-300 hover:text-white">
+            Casos
           </a>
 
-          <a href="#impacto" className="hover:text-white transition-colors duration-300">
+          <a href="#framework" className="transition-colors duration-300 hover:text-white">
+            Framework
+          </a>
+
+          <a href="#impacto" className="transition-colors duration-300 hover:text-white">
             Impacto
+          </a>
+
+          <a href="#planes" className="transition-colors duration-300 hover:text-white">
+            Planes
           </a>
 
           <button
             onClick={openModal}
-            className="px-6 py-2 rounded-lg bg-emerald-400 text-black font-medium hover:scale-105 transition-all duration-300"
+            className="rounded-lg bg-emerald-400 px-6 py-2 font-medium text-black transition-all duration-300 hover:scale-105"
           >
-            Diagnóstico
+            Diagnostico
           </button>
-
         </div>
       </div>
 
-      {/* Línea inferior ultra sutil (NO TOCADA) */}
-      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent"></div>
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent" />
     </nav>
   );
 }

@@ -32,7 +32,7 @@ export default function Footer() {
 
             <ul className="space-y-3 text-white/50 text-sm">
               <li><a href="#servicios" className="hover:text-white transition">Servicios</a></li>
-              <li><a href="#metodo" className="hover:text-white transition">Metodología</a></li>
+              <li><a href="#framework" className="hover:text-white transition">Framework</a></li>
               <li><a href="#contacto" className="hover:text-white transition">Contacto</a></li>
             </ul>
           </div>
