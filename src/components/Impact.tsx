@@ -1,3 +1,5 @@
+import SectionReveal from "@/components/SectionReveal";
+
 const outcomes = [
   {
     eyebrow: "Operacion",
@@ -26,42 +28,51 @@ export default function Impact() {
     <section id="impacto" className="bg-[#0e1424] px-6 py-32">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-14 lg:grid-cols-[0.95fr_1.35fr]">
-          <div>
-            <span className="inline-flex rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-300">
-              Impacto
-            </span>
-
-            <h2 className="mt-8 text-3xl font-semibold leading-tight text-white md:text-5xl">
-              El valor no esta en tener mas herramientas.
-              <span className="mt-4 block shimmer-text">
-                Esta en operar mejor con ellas.
+          <SectionReveal direction="right">
+            <div>
+              <span className="inline-flex rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-300">
+                Impacto
               </span>
-            </h2>
 
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/60">
-              Una estructura digital bien diseñada mejora la experiencia del cliente,
-              ordena la operacion y da mas capacidad para crecer con criterio.
-            </p>
-          </div>
+              <h2 className="mt-8 text-3xl font-semibold leading-tight text-white md:text-5xl">
+                El valor no esta en tener mas herramientas.
+                <span className="mt-4 block shimmer-text">
+                  Esta en operar mejor con ellas.
+                </span>
+              </h2>
+
+              <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/60">
+                Una estructura digital bien diseñada mejora la experiencia del cliente,
+                ordena la operacion y da mas capacidad para crecer con criterio.
+              </p>
+            </div>
+          </SectionReveal>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {outcomes.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-8 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400/35 hover:shadow-[0_0_40px_rgba(0,240,181,0.12)]"
-              >
-                <span className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300/80">
-                  {item.eyebrow}
-                </span>
+            {outcomes.map((item, index) => (
+              <SectionReveal key={item.title} delay={index * 100} direction="up">
+                <article
+                  className="group relative rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-8 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400/35 hover:shadow-[0_0_40px_rgba(0,240,181,0.12)] focus-within:border-emerald-400/35"
+                  tabIndex={0}
+                >
+                  <span className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300/80">
+                    {item.eyebrow}
+                  </span>
 
-                <h3 className="mt-6 text-2xl font-semibold leading-snug text-white">
-                  {item.title}
-                </h3>
+                  <h3 className="mt-6 text-2xl font-semibold leading-snug text-white">
+                    {item.title}
+                  </h3>
 
-                <p className="mt-4 leading-relaxed text-white/60">
-                  {item.text}
-                </p>
-              </article>
+                  <p className="mt-4 leading-relaxed text-white/60">
+                    {item.text}
+                  </p>
+
+                  <div
+                    className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-400/0 to-cyan-400/0 opacity-0 transition-opacity duration-500 group-hover:from-emerald-400/[0.03] group-hover:to-cyan-400/[0.03] group-hover:opacity-100"
+                    aria-hidden="true"
+                  />
+                </article>
+              </SectionReveal>
             ))}
           </div>
         </div>

@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import TrustMetrics from "@/components/TrustMetrics";
+import Problem from "@/components/Problem";
 import Method from "@/components/Method";
 import Impact from "@/components/Impact";
 import FinalCTA from "@/components/FinalCTA";
@@ -24,8 +26,10 @@ export default function Home() {
     <main className="overflow-x-hidden bg-[#05080f] text-white">
       <Navbar openModal={openModal} />
       <Hero openModal={openModal} />
+      <TrustMetrics />
 
       <Solutions />
+      <Problem />
       <Cases />
       <Method />
       <Impact />

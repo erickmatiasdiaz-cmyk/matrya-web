@@ -12,9 +12,9 @@ export default function WhatsappFloat() {
     <a
       href={`https://wa.me/56984795290?text=${message}`}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
-      className="group fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full border border-emerald-300/25 bg-[linear-gradient(135deg,rgba(16,185,129,0.92),rgba(6,214,160,0.92))] px-4 py-3 text-black shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(0,240,181,0.28)] md:bottom-6 md:right-6 md:px-5"
+      className="group fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full border border-emerald-300/25 bg-[linear-gradient(135deg,rgba(16,185,129,0.92),rgba(6,214,160,0.92))] px-4 py-3 text-black shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(0,240,181,0.28)] focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:ring-offset-2 focus:ring-offset-[#05080f] md:bottom-6 md:right-6 md:px-5"
     >
       <span className="flex h-11 w-11 items-center justify-center rounded-full bg-black/12 ring-1 ring-white/20">
         <svg
